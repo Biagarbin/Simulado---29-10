@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Livewire;
+
+use App\Models\Movimentacao;
+use Livewire\Component;
+
+class MovimentacaoIndex extends Component
+{
+    public function render()
+    {
+        $movimentacoes = Movimentacao::orderBy('data_movimentacao', 'desc')->get();
+        return view('livewire.movimentacao.movimentacao-index', 
+        compact ('movimentacoes'));
+    }
+}
